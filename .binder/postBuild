@@ -2,15 +2,15 @@
 git clone https://github.com/just-js/just.git
 cd just
 export JUST_HOME=$(pwd)
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/andrew/.local/lib
-mkdir -p /home/andrew/.local/bin
-make INSTALL="/home/andrew/.local/bin" runtime-builder install
-mkdir -p /home/andrew/.local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.local/lib
+mkdir -p $HOME/.local/bin
+make INSTALL="$HOME/.local/bin" runtime-builder install
+mkdir -p $HOME/.local/lib
 make examples
 make modules
 # install node.js v15
 wget https://nodejs.org/dist/v15.1.0/node-v15.1.0-linux-x64.tar.xz
 tar -xvf node-v15.1.0-linux-x64.tar.xz
-cp node-v15.1.0-linux-x64/bin/node /home/andrew/.local/bin/
+cp node-v15.1.0-linux-x64/bin/node $HOME/.local/bin/
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 conda install -y pandas numpy matplotlib
